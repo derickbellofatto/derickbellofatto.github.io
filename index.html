@@ -1,69 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Open Bar</title>
+  <meta name="description" content="Tonight's drink list">
+  <style>
+    :root {
+      --bg: #fffdfc;
+      --card: #ffffff;
+      --border: #f0dce2;
+      --rule: #ecd3da;
+      --title: #c98599;
+      --name: #bf7f93;
+      --soft: #d3a2b0;
+      --kicker: #d8aab7;
+      --desc: #d2a1af;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--title);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.5;
+    }
+    main {
+      max-width: 672px;
+      margin: 0 auto;
+      padding: 48px 20px;
+    }
+    header { text-align: center; margin-bottom: 40px; }
+    .rule { width: 80px; height: 1px; background: var(--rule); margin: 0 auto; }
+    .rule.small { width: 64px; }
+    .kicker {
+      margin: 20px 0 8px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.32em;
+      color: var(--kicker);
+    }
+    h1 {
+      margin: 0;
+      font-weight: normal;
+      font-size: clamp(2.5rem, 9vw, 3.75rem);
+      letter-spacing: 0.04em;
+      color: var(--title);
+    }
+    .subtitle {
+      margin: 12px 0 20px;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--soft);
+    }
+    section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 28px 28px;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 30px rgba(190, 130, 150, 0.07);
+    }
+    @media (min-width: 640px) { section { padding: 28px 40px; } }
+    h2 {
+      margin: 0 0 24px;
+      text-align: center;
+      font-weight: normal;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: var(--title);
+    }
+    .drink { text-align: center; margin-bottom: 20px; }
+    .drink:last-child { margin-bottom: 0; }
+    h3 {
+      margin: 0;
+      font-weight: normal;
+      font-size: 1.25rem;
+      color: var(--name);
+    }
+    .drink p {
+      margin: 4px 0 0;
+      font-size: 0.9rem;
+      color: var(--desc);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    footer { text-align: center; margin-top: 40px; }
+    footer p {
+      margin: 20px 0 0;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--soft);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="rule"></div>
+      <p class="kicker">Celebrate with us</p>
+      <h1>The Open Bar</h1>
+      <p class="subtitle">Tonight's drink list</p>
+      <div class="rule"></div>
+    </header>
 
-export default function WeddingOpenBarMenu() {
-  const sections = [
-    {
-      title: "Cocktails",
-      drinks: [
-        ["Old Fashioned", "Bourbon, sugar, bitters, orange peel"],
-        ["Margarita", "Tequila, lime, triple sec, salted rim"],
-        ["Moscow Mule", "Vodka, lime, ginger beer"],
-        ["Gin & Tonic", "Gin, tonic, lime wedge"],
-      ],
-    },
-    {
-      title: "Beer & Wine",
-      drinks: [
-        ["Lager", "Crisp and light, on ice"],
-        ["IPA", "Hoppy and citrusy"],
-        ["Red or White Wine", "Ask the bartender for tonight's pour"],
-      ],
-    },
-    {
-      title: "Zero-Proof",
-      drinks: [
-        ["Virgin Mule", "Lime, ginger beer, mint"],
-        ["Sparkling Citrus Soda", "Fresh lemon and lime over ice"],
-      ],
-    },
-  ];
+    <!-- To edit: change names and descriptions below. Copy a
+         <div class="drink"> block to add a drink, delete one to remove it. -->
 
-  return (
-    <main className="min-h-screen bg-[#fffdfc] px-5 py-12 text-[#c98fa0]">
-      <div className="mx-auto max-w-2xl">
-        <header className="mb-10 text-center">
-          <div className="mx-auto mb-5 h-px w-20 bg-[#ecd3da]" />
-          <p className="mb-2 font-serif text-sm uppercase tracking-[0.32em] text-[#d8aab7]">Celebrate with us</p>
-          <h1 className="font-serif text-5xl font-normal tracking-wide text-[#c98599] sm:text-6xl">The Open Bar</h1>
-          <p className="mt-3 font-serif text-lg italic text-[#d3a2b0]">Tonight's drink list</p>
-          <div className="mx-auto mt-5 h-px w-20 bg-[#ecd3da]" />
-        </header>
-
-        <div className="space-y-7">
-          {sections.map((section) => (
-            <section
-              key={section.title}
-              className="rounded-[28px] border border-[#f0dce2] bg-white px-7 py-7 shadow-[0_8px_30px_rgba(190,130,150,0.07)] sm:px-10"
-            >
-              <h2 className="mb-6 text-center font-serif text-base uppercase tracking-[0.28em] text-[#c98599]">
-                {section.title}
-              </h2>
-              <div className="space-y-5">
-                {section.drinks.map(([name, description]) => (
-                  <div key={name} className="text-center">
-                    <h3 className="font-serif text-xl text-[#bf7f93]">{name}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-[#d2a1af]">{description}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
-
-        <footer className="mt-10 text-center">
-          <div className="mx-auto mb-5 h-px w-16 bg-[#ecd3da]" />
-          <p className="font-serif text-sm italic text-[#d3a2b0]">Please drink responsibly. Never drink and drive.</p>
-        </footer>
+    <section>
+      <h2>Cocktails</h2>
+      <div class="drink">
+        <h3>Old Fashioned</h3>
+        <p>Bourbon, sugar, bitters, orange peel</p>
       </div>
-    </main>
-  );
-}
+      <div class="drink">
+        <h3>Margarita</h3>
+        <p>Tequila, lime, triple sec, salted rim</p>
+      </div>
+      <div class="drink">
+        <h3>Moscow Mule</h3>
+        <p>Vodka, lime, ginger beer</p>
+      </div>
+      <div class="drink">
+        <h3>Gin &amp; Tonic</h3>
+        <p>Gin, tonic, lime wedge</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Beer &amp; Wine</h2>
+      <div class="drink">
+        <h3>Lager</h3>
+        <p>Crisp and light, on ice</p>
+      </div>
+      <div class="drink">
+        <h3>IPA</h3>
+        <p>Hoppy and citrusy</p>
+      </div>
+      <div class="drink">
+        <h3>Red or White Wine</h3>
+        <p>Ask the bartender for tonight's pour</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Zero-Proof</h2>
+      <div class="drink">
+        <h3>Virgin Mule</h3>
+        <p>Lime, ginger beer, mint</p>
+      </div>
+      <div class="drink">
+        <h3>Sparkling Citrus Soda</h3>
+        <p>Fresh lemon and lime over ice</p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="rule small"></div>
+      <p>Please drink responsibly. Never drink and drive.</p>
+    </footer>
+  </main>
+</body>
+</html>
