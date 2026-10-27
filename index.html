@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Bar Menu</title>
+  <meta name="description" content="Tonight's drink list">
+  <style>
+    :root {
+      --bg: #14110f;
+      --card: #1e1a17;
+      --text: #f3ece2;
+      --muted: #a89f93;
+      --accent: #d9a441;
+      --line: #342d27;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.5;
+    }
+    .wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 40px 20px 60px;
+    }
+    header { text-align: center; margin-bottom: 36px; }
+    header h1 {
+      font-size: 2.4rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0 0 6px;
+      color: var(--accent);
+    }
+    header p { margin: 0; color: var(--muted); font-style: italic; }
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 22px 22px 8px;
+      margin-bottom: 24px;
+    }
+    section h2 {
+      margin: 0 0 14px;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 10px;
+    }
+    .drink { margin-bottom: 18px; }
+    .drink h3 { margin: 0; font-size: 1.15rem; font-weight: normal; }
+    .drink p { margin: 2px 0 0; color: var(--muted); font-size: 0.95rem; }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>The Open Bar</h1>
+      <p>Tonight's drink list</p>
+    </header>
+
+    <!-- To edit: change the names and descriptions below. Copy a
+         <div class="drink"> block to add a drink, delete one to remove it. -->
+
+    <section>
+      <h2>Cocktails</h2>
+      <div class="drink">
+        <h3>Old Fashioned</h3>
+        <p>Bourbon, sugar, bitters, orange peel</p>
+      </div>
+      <div class="drink">
+        <h3>Margarita</h3>
+        <p>Tequila, lime, triple sec, salted rim</p>
+      </div>
+      <div class="drink">
+        <h3>Moscow Mule</h3>
+        <p>Vodka, lime, ginger beer</p>
+      </div>
+      <div class="drink">
+        <h3>Gin &amp; Tonic</h3>
+        <p>Gin, tonic, lime wedge</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Beer &amp; Wine</h2>
+      <div class="drink">
+        <h3>Lager</h3>
+        <p>Crisp and light, on ice</p>
+      </div>
+      <div class="drink">
+        <h3>IPA</h3>
+        <p>Hoppy and citrusy</p>
+      </div>
+      <div class="drink">
+        <h3>Red or White Wine</h3>
+        <p>Ask the bartender for tonight's pour</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Zero-Proof</h2>
+      <div class="drink">
+        <h3>Virgin Mule</h3>
+        <p>Lime, ginger beer, mint</p>
+      </div>
+      <div class="drink">
+        <h3>Sparkling Citrus Soda</h3>
+        <p>Fresh lemon and lime over ice</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Please drink responsibly. Never drink and drive.</p>
+    </footer>
+  </div>
+</body>
+</html>
