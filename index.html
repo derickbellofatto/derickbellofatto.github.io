@@ -122,6 +122,29 @@
       color: var(--olive-deep);
     }
  
+    /* Welcome note */
+    .note {
+      background: var(--ivory-light);
+      border-left: 3px solid var(--brass);
+      border-radius: 2px;
+      padding: 20px 24px;
+      margin-bottom: 34px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(58, 45, 38, 0.06);
+    }
+    .note p {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--espresso);
+    }
+    .note .names {
+      font-style: normal;
+      font-weight: 600;
+    }
+ 
     /* Footer */
     footer {
       text-align: center;
@@ -150,6 +173,10 @@
   </header>
  
   <main>
+    <div class="note">
+      <p><span class="names">Hannah &amp; Celeste</span> are happy to pour you something delicious! We're excited to celebrate with you. Please present ID if requested &amp; enjoy responsibly!</p>
+    </div>
+ 
     <!-- To edit: change names and descriptions below. Copy a
          <div class="drink"> block to add a drink, delete one to remove it. -->
  
@@ -215,3 +242,4 @@
   </footer>
 </body>
 </html>
+ 
