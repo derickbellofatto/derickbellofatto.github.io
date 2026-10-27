@@ -5,111 +5,157 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Open Bar</title>
   <meta name="description" content="Tonight's drink list">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fffdfc;
-      --card: #ffffff;
-      --border: #f0dce2;
-      --rule: #ecd3da;
-      --title: #c98599;
-      --name: #bf7f93;
-      --soft: #d3a2b0;
-      --kicker: #d8aab7;
-      --desc: #d2a1af;
+      --espresso: #3A2D26;
+      --olive: #6F7157;
+      --olive-deep: #595B44;   /* olive darkened slightly for small text legibility */
+      --ivory: #F3EBDD;
+      --ivory-light: #FAF6EE;
+      --brass: #A7834F;
+      --brass-deep: #84632F;   /* brass darkened slightly for small text legibility */
+      --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      --sans: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       min-height: 100vh;
-      background: var(--bg);
-      color: var(--title);
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.5;
+      background: var(--ivory);
+      color: var(--espresso);
+      font-family: var(--sans);
+      line-height: 1.55;
     }
-    main {
-      max-width: 672px;
-      margin: 0 auto;
-      padding: 48px 20px;
+ 
+    /* Header band */
+    header {
+      background: var(--espresso);
+      color: var(--ivory);
+      text-align: center;
+      padding: 56px 20px 48px;
+      border-bottom: 3px solid var(--brass);
     }
-    header { text-align: center; margin-bottom: 40px; }
-    .rule { width: 80px; height: 1px; background: var(--rule); margin: 0 auto; }
-    .rule.small { width: 64px; }
     .kicker {
-      margin: 20px 0 8px;
-      font-size: 0.85rem;
+      margin: 0 0 14px;
+      font-size: 0.78rem;
+      font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.32em;
-      color: var(--kicker);
+      letter-spacing: 0.4em;
+      color: var(--brass);
     }
     h1 {
       margin: 0;
-      font-weight: normal;
-      font-size: clamp(2.5rem, 9vw, 3.75rem);
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(2.8rem, 11vw, 4.5rem);
       letter-spacing: 0.04em;
-      color: var(--title);
+      line-height: 1.05;
     }
     .subtitle {
-      margin: 12px 0 20px;
-      font-size: 1.1rem;
+      margin: 12px 0 0;
+      font-family: var(--serif);
       font-style: italic;
-      color: var(--soft);
+      font-size: 1.3rem;
+      color: #d9cdb8;
+    }
+    .ornament { display: block; margin: 22px auto 0; }
+ 
+    /* Menu */
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 20px 24px;
     }
     section {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 28px 28px;
-      margin-bottom: 28px;
-      box-shadow: 0 8px 30px rgba(190, 130, 150, 0.07);
+      background: var(--ivory-light);
+      border: 1px solid rgba(167, 131, 79, 0.55);
+      border-radius: 4px;
+      padding: 34px 28px 26px;
+      margin-bottom: 30px;
+      position: relative;
+      box-shadow: 0 10px 28px rgba(58, 45, 38, 0.08);
     }
-    @media (min-width: 640px) { section { padding: 28px 40px; } }
+    section::before {
+      content: "";
+      position: absolute;
+      inset: 6px;
+      border: 1px solid rgba(167, 131, 79, 0.25);
+      border-radius: 2px;
+      pointer-events: none;
+    }
+    @media (min-width: 640px) { section { padding: 38px 48px 30px; } }
+ 
     h2 {
-      margin: 0 0 24px;
+      margin: 0 0 6px;
       text-align: center;
-      font-weight: normal;
-      font-size: 1rem;
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.7rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      letter-spacing: 0.28em;
-      color: var(--title);
+      color: var(--espresso);
     }
-    .drink { text-align: center; margin-bottom: 20px; }
-    .drink:last-child { margin-bottom: 0; }
+    .h2-rule {
+      display: block;
+      width: 56px;
+      height: 2px;
+      background: var(--brass);
+      margin: 12px auto 26px;
+    }
+ 
+    .drink { text-align: center; margin-bottom: 22px; }
+    .drink:last-child { margin-bottom: 4px; }
     h3 {
       margin: 0;
-      font-weight: normal;
-      font-size: 1.25rem;
-      color: var(--name);
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: var(--espresso);
     }
     .drink p {
-      margin: 4px 0 0;
-      font-size: 0.9rem;
-      color: var(--desc);
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      margin: 2px 0 0;
+      font-size: 0.92rem;
+      letter-spacing: 0.03em;
+      color: var(--olive-deep);
     }
-    footer { text-align: center; margin-top: 40px; }
+ 
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 8px 20px 56px;
+    }
     footer p {
-      margin: 20px 0 0;
-      font-size: 0.85rem;
+      margin: 16px 0 0;
+      font-family: var(--serif);
       font-style: italic;
-      color: var(--soft);
+      font-size: 1.05rem;
+      color: var(--olive-deep);
     }
   </style>
 </head>
 <body>
+  <header>
+    <p class="kicker">Tonight's Selection</p>
+    <h1>The Open Bar</h1>
+    <p class="subtitle">A short list, well poured</p>
+    <svg class="ornament" width="220" height="16" viewBox="0 0 220 16" aria-hidden="true">
+      <line x1="0" y1="8" x2="92" y2="8" stroke="#A7834F" stroke-width="1"/>
+      <rect x="103" y="1" width="14" height="14" transform="rotate(45 110 8)" fill="none" stroke="#A7834F" stroke-width="1.2"/>
+      <circle cx="110" cy="8" r="2" fill="#A7834F"/>
+      <line x1="128" y1="8" x2="220" y2="8" stroke="#A7834F" stroke-width="1"/>
+    </svg>
+  </header>
+ 
   <main>
-    <header>
-      <div class="rule"></div>
-      <p class="kicker">Celebrate with us</p>
-      <h1>The Open Bar</h1>
-      <p class="subtitle">Tonight's drink list</p>
-      <div class="rule"></div>
-    </header>
-
     <!-- To edit: change names and descriptions below. Copy a
          <div class="drink"> block to add a drink, delete one to remove it. -->
-
+ 
     <section>
       <h2>Cocktails</h2>
+      <span class="h2-rule"></span>
       <div class="drink">
         <h3>Old Fashioned</h3>
         <p>Bourbon, sugar, bitters, orange peel</p>
@@ -127,9 +173,10 @@
         <p>Gin, tonic, lime wedge</p>
       </div>
     </section>
-
+ 
     <section>
       <h2>Beer &amp; Wine</h2>
+      <span class="h2-rule"></span>
       <div class="drink">
         <h3>Lager</h3>
         <p>Crisp and light, on ice</p>
@@ -143,9 +190,10 @@
         <p>Ask the bartender for tonight's pour</p>
       </div>
     </section>
-
+ 
     <section>
       <h2>Zero-Proof</h2>
+      <span class="h2-rule"></span>
       <div class="drink">
         <h3>Virgin Mule</h3>
         <p>Lime, ginger beer, mint</p>
@@ -155,11 +203,15 @@
         <p>Fresh lemon and lime over ice</p>
       </div>
     </section>
-
-    <footer>
-      <div class="rule small"></div>
-      <p>Please drink responsibly. Never drink and drive.</p>
-    </footer>
   </main>
+ 
+  <footer>
+    <svg width="120" height="12" viewBox="0 0 120 12" aria-hidden="true">
+      <line x1="0" y1="6" x2="48" y2="6" stroke="#A7834F" stroke-width="1"/>
+      <rect x="55" y="1" width="10" height="10" transform="rotate(45 60 6)" fill="none" stroke="#A7834F" stroke-width="1.2"/>
+      <line x1="72" y1="6" x2="120" y2="6" stroke="#A7834F" stroke-width="1"/>
+    </svg>
+    <p>Please drink responsibly. Never drink and drive.</p>
+  </footer>
 </body>
 </html>
