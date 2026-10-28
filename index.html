@@ -145,6 +145,40 @@
       font-weight: 600;
     }
 
+    /* Tip note */
+    .tip {
+      text-align: center;
+      padding: 26px 24px 10px;
+      border-top: 1px solid rgba(167, 131, 79, 0.55);
+      margin-top: 8px;
+    }
+    .tip .tip-label {
+      margin: 0 0 8px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.32em;
+      color: var(--brass-deep);
+    }
+    .tip p {
+      margin: 0;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: var(--olive-deep);
+    }
+    .tip .venmo {
+      margin-top: 10px;
+      font-family: var(--sans);
+      font-style: normal;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      color: var(--espresso);
+    }
+    .tip .venmo a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--brass); }
+
     /* Footer */
     footer {
       text-align: center;
@@ -156,6 +190,67 @@
       font-style: italic;
       font-size: 1.05rem;
       color: var(--olive-deep);
+    }
+
+    /* Print: one full-bleed letter-size page, two columns, full color scheme */
+    @media print {
+      @page { size: letter portrait; margin: 0; }
+
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      html, body { background: var(--ivory); }
+      body { min-height: 0; line-height: 1.4; }
+
+      header {
+        padding: 0.42in 0.5in 0.32in;
+        border-bottom: 3px solid var(--brass);
+      }
+      .kicker { font-size: 8.5pt; margin-bottom: 6pt; }
+      h1 { font-size: 36pt; }
+      .subtitle { font-size: 12.5pt; margin-top: 4pt; }
+      .ornament { margin-top: 9pt; }
+
+      main {
+        max-width: none;
+        padding: 0.28in 0.5in 0;
+        column-count: 2;
+        column-gap: 0.33in;
+      }
+
+      .note {
+        column-span: all;
+        box-shadow: none;
+        padding: 10pt 16pt;
+        margin-bottom: 13pt;
+      }
+      .note p { font-size: 11.5pt; line-height: 1.4; }
+
+      section {
+        box-shadow: none;
+        padding: 14pt 14pt 6pt;
+        margin: 0 0 13pt;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      section::before { inset: 4px; }
+
+      h2 { font-size: 12.5pt; }
+      .h2-rule { margin: 7pt auto 11pt; }
+      .drink { margin-bottom: 8pt; break-inside: avoid; }
+      h3 { font-size: 14pt; line-height: 1.2; }
+      .drink p { font-size: 9pt; margin-top: 1.5pt; }
+
+      .tip { column-span: all; padding: 14pt 14pt 0; margin-top: 8pt; }
+      .tip .tip-label { font-size: 7pt; margin-bottom: 4pt; }
+      .tip p { font-size: 11.5pt; }
+      .tip .venmo { font-size: 9.5pt; margin-top: 6pt; }
+
+      footer { padding: 4pt 0.5in 0.3in; }
+      footer svg { height: 10pt; }
+      footer p { font-size: 9.5pt; margin-top: 6pt; }
     }
   </style>
 </head>
@@ -230,6 +325,7 @@
         <p>Cranberry juice, Lime, Soda water</p>
       </div>
     </section>
+
     <section>
       <h2>Beer &amp; Wine</h2>
       <span class="h2-rule"></span>
@@ -251,6 +347,16 @@
         <p>Semi-Dry Riesling, 2025</p>
       </div>
     </section>
+
+    <div class="tip">
+      <p class="tip-label">A Little Thank-You</p>
+      <p>Tips are never expected, but always appreciated. If your drink hit the spot, your bartender would be grateful.</p>
+
+      <!-- VENMO (optional): remove this comment wrapper and replace YOUR-HANDLE (twice) with your Venmo username.
+      <p class="venmo">Venmo: <a href="https://venmo.com/u/YOUR-HANDLE">@YOUR-HANDLE</a></p>
+      -->
+    </div>
+  </main>
 
   <footer>
     <svg width="120" height="12" viewBox="0 0 120 12" aria-hidden="true">
